@@ -1,10 +1,15 @@
 <%= @user.email %>
 <% if @user.events.any? %>
 		<h3>Submitted (<%= @user.events.count %>) events</h3>
-		<ul class="media-list">
-			<%= render @events %>
-		</ul>
-		<%= will_paginate @events %>
+		
+		<ul>
+  <% @user.events.each do |event| %>
+    <li>
+      <%= link_to event.title, event %>
+    </li>
+  <% end %>
+</ul>
+
 	<% else %>
 		<h3>No Events Found</h3>
 	<% end %>
