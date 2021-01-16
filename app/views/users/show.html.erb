@@ -13,3 +13,31 @@
 	<% else %>
 		<h3>No Events Found</h3>
 	<% end %>
+
+<% if @upcoming_events.any? %>
+	<h2>Upcoming Events have to attend</h2> 
+	<ul>
+		<% @upcoming_events.each do |event| %>
+			<li>
+			<%= link_to event.title, event %> <small>Time: </small>
+			<%= event.date%>
+			</li>
+		<% end %>
+	</ul>
+<% else %>
+	<h2>No Upcoming Events have to attend</h2>
+<% end %>
+
+<% if @prev_events.any? %>
+	<h2>Previous events attended</h2> 
+	<ul>
+		<% @prev_events.each do |event| %>
+			<li>
+			<%= link_to event.title, event %> <small>Time: </small>
+			<%= event.date%>
+			</li>
+		<% end %>
+	</ul>
+<% else %>
+	<h2>No previous event attended</h2>
+<% end %>

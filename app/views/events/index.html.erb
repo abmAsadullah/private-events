@@ -9,4 +9,33 @@
   <% end %>
 </ul>
 
+<h2>Upcoming Events</h2>
+<% if @events.upcoming.any? %>
+	<ul>
+  <% @events.upcoming.each do |event| %>
+    <li>
+      <%= link_to event.title, event %> <small>Time: </small>
+      <%= event.date%>
+    </li>
+  <% end %>
+</ul>
+<% else %>
+	<h3>Events (0)</h3>
+	<%= link_to new_event_path, class: 'btn btn-success' do %>
+		Add Event <i class="fa fa-plus-circle"></i>
+	<% end %>
+<% end %>
+
+<h2>Past Events</h2>
+<% if @events.past.any? %>
+	<ul>
+  <% @events.past.each do |event| %>
+    <li>
+      <%= link_to event.title, event %> <small>Time: </small>
+      <%= event.date%>
+    </li>
+  <% end %>
+</ul>
+<% end %>
+
 <%= link_to "New event", new_event_path %>
