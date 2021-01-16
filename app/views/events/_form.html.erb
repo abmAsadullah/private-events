@@ -20,7 +20,9 @@
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
-
+<div>
+  <%= form.datetime_select :date, ampm: true, order: %i[day month year], default: 0.days.from_now.localtime, class: "date" %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -3,12 +3,12 @@
 		<h3>Submitted (<%= @user.events.count %>) events</h3>
 		
 		<ul>
-  <% @user.events.each do |event| %>
-    <li>
-      <%= link_to event.title, event %>
-    </li>
-  <% end %>
-</ul>
+			<% @user.events.each do |event| %>
+				<li>
+				<%= link_to event.title, event %>
+				</li>
+			<% end %>
+		</ul>
 
 	<% else %>
 		<h3>No Events Found</h3>
