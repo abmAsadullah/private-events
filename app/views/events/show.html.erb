@@ -3,4 +3,14 @@
 <p><%= @event.description %></p>
 <p><%= @event.date %></p>
 
+<% if @event.attendees.any? %>
+    <% @event.attendees.each do |attendee| %>
+        <span class="attendee">
+            <%= attendee.email %>
+        </span> <br/>
+    <% end %>
+<% else %>
+    No attendees
+<% end %><br/>
+
 <%= link_to "Events", events_path %>
