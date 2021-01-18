@@ -1,4 +1,4 @@
-<h1>Events</h1>
+<h1>Events page</h1>
 
 <ul>
   <% @events.each do |event| %>
@@ -20,10 +20,7 @@
   <% end %>
 </ul>
 <% else %>
-	<h3>Events (0)</h3>
-	<%= link_to new_event_path, class: 'btn btn-success' do %>
-		Add Event <i class="fa fa-plus-circle"></i>
-	<% end %>
+	<h3>No upcoming event!</h3>
 <% end %>
 
 <h2>Past Events</h2>
@@ -36,6 +33,6 @@
     </li>
   <% end %>
 </ul>
+<% else %>
+	<h3>No past event!</h3>
 <% end %>
-
-<%= link_to "New event", new_event_path %>

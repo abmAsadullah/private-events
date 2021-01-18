@@ -2,7 +2,7 @@
 
 <p>Description: <%= @event.description %></p>
 <p><small>Time: </small><%= @event.date %></p>
-<p><small>Arrenged by: </small><%= @event.creator.email %></p>
+<p><small>Arrenged by: </small><%= @event.creator.username %></p>
 
 <br><br>
 <% if current_user != @event.creator && !current_user.attended_events.where(id: @event.id).any? %>
@@ -12,19 +12,20 @@
 		<%= f.submit "Attend" %>
 	<% end %>
 <% else %>
-    <p>Warning: You cannot attend this event because you are event creator or already attended this meeting!</p>
+    <p>You are attendee of this event or you created this event!</p>
 <% end %>
 
   <br><br>
 
 <% if @event.attendees.any? %>
+    <h3>Attendees list:</h3>
     <% @event.attendees.each do |attendee| %>
-        <span class="attendee">
+        <span>
             <%= attendee.email %>
         </span> <br/>
     <% end %>
 <% else %>
-    No attendees
+    <h3>No attendees</h3>
 <% end %><br/>
 
 
