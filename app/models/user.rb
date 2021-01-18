@@ -17,4 +17,11 @@ class User < ApplicationRecord
   # def prev_events
   #   self.attended_events.past
   # end
+  def username
+    return self.email.split('@')[0]
+  end
+
+  def attend!(event)
+    self.event_attendees.create!(attended_event_id: event.id)
+  end
 end

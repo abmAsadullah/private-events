@@ -1,6 +1,6 @@
-<%= @user.email %>
+<h1>Welcome to <%= @user.username %> page</h1>
 <% if @user.events.any? %>
-		<h3>Submitted (<%= @user.events.count %>) events</h3>
+		<h3><%= @user.username.capitalize %> created (<%= @user.events.count %>) events</h3>
 		
 		<ul>
 			<% @user.events.each do |event| %>
@@ -15,7 +15,7 @@
 	<% end %>
 
 <% if @upcoming_events.any? %>
-	<h2>Upcoming Events have to attend</h2> 
+	<h3>Upcoming Events have to attend</h3> 
 	<ul>
 		<% @upcoming_events.each do |event| %>
 			<li>
@@ -25,11 +25,11 @@
 		<% end %>
 	</ul>
 <% else %>
-	<h2>No Upcoming Events have to attend</h2>
+	<h3>No Upcoming Events have to attend</h3>
 <% end %>
 
 <% if @prev_events.any? %>
-	<h2>Previous events attended</h2> 
+	<h3>Previous events attended</h3> 
 	<ul>
 		<% @prev_events.each do |event| %>
 			<li>
@@ -39,5 +39,5 @@
 		<% end %>
 	</ul>
 <% else %>
-	<h2>No previous event attended</h2>
+	<h3>No previous event attended</h3>
 <% end %>

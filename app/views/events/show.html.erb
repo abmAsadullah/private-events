@@ -1,7 +1,21 @@
-<h1><%= @event.title %></h1>
+<h1>Title: <%= @event.title %></h1>
 
-<p><%= @event.description %></p>
-<p><%= @event.date %></p>
+<p>Description: <%= @event.description %></p>
+<p><small>Time: </small><%= @event.date %></p>
+<p><small>Arrenged by: </small><%= @event.creator.email %></p>
+
+<br><br>
+<% if current_user != @event.creator && !current_user.attended_events.where(id: @event.id).any? %>
+	<%= form_for(current_user.event_attendees.build(attended_event_id: @event.id)) do |f| %>
+	<%= f.hidden_field :attended_event_id %>
+    <p>Lets join this event</p>
+		<%= f.submit "Attend" %>
+	<% end %>
+<% else %>
+    <p>Warning: You cannot attend this event because you are event creator or already attended this meeting!</p>
+<% end %>
+
+  <br><br>
 
 <% if @event.attendees.any? %>
     <% @event.attendees.each do |attendee| %>
@@ -13,4 +27,5 @@
     No attendees
 <% end %><br/>
 
-<%= link_to "Events", events_path %>
+
+<%= link_to "See all events", events_path %>
