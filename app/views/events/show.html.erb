@@ -5,14 +5,14 @@
 <p><small>Arranged by: </small><%= @event.creator.username %></p>
 
 <br><br>
-<% if current_user != @event.creator && !current_user.attended_events.where(id: @event.id).any? %>
+<% if current_user && current_user != @event.creator && !current_user.attended_events.where(id: @event.id).any? %>
 	<%= form_for(current_user.event_attendees.build(attended_event_id: @event.id)) do |f| %>
 	<%= f.hidden_field :attended_event_id %>
     <p>Lets join this event</p>
 		<%= f.submit "Attend" %>
 	<% end %>
 <% else %>
-    <p>You are attendee of this event or you created this event!</p>
+    <p>You are attendee of this event or you created this event or currently loged out!</p>
 <% end %>
 
   <br><br>
