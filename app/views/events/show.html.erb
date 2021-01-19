@@ -2,7 +2,7 @@
 
 <p>Description: <%= @event.description %></p>
 <p><small>Time: </small><%= @event.date %></p>
-<p><small>Arrenged by: </small><%= @event.creator.username %></p>
+<p><small>Arranged by: </small><%= @event.creator.username %></p>
 
 <br><br>
 <% if current_user != @event.creator && !current_user.attended_events.where(id: @event.id).any? %>

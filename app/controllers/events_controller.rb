@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     @event = Event.new
   end
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
     @event.creator = current_user
     
     if @event.save

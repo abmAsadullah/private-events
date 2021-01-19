@@ -1,9 +1,9 @@
 <h1>Welcome to <%= @user.username %>'s page</h1>
-<% if @user.events.any? %>
-		<h3><%= @user.username.capitalize %> created (<%= @user.events.count %>) events</h3>
+<% if @created_events.any? %>
+		<h3><%= @user.username.capitalize %> created (<%= @created_events.count %>) events</h3>
 		
 		<ul>
-			<% @user.events.each do |event| %>
+			<% @created_events.each do |event| %>
 				<li>
 				<%= link_to event.title, event %>
 				</li>
