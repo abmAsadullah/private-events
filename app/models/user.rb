@@ -9,18 +9,15 @@ class User < ApplicationRecord
 
   scope :upcoming, -> { where('date >= ?', DateTime.now) }
   scope :past, -> { where('date < ? ', DateTime.now) }
-  # def upcoming_events
-  #   self.attended_events.upcoming
-  # end
 
-  # def prev_events
-  #   self.attended_events.past
-  # end
   def username
-    return self.email.split('@')[0]
+    n = 0
+    m = self
+    return m.email.split('@')[n]
   end
 
   def attend!(event)
-    self.event_attendees.create!(attended_event_id: event.id)
+    p = self
+    p.event_attendees.create!(attended_event_id: event.id)
   end
 end
