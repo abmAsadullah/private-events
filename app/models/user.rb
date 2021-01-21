@@ -11,10 +11,9 @@ class User < ApplicationRecord
   scope :past, -> { where('date < ? ', DateTime.now) }
 
   def username
-    n = 0
-    at = '@'
     m = self
-    return m.email.split(at)[n]
+    ret = m.email.split('@')[0]
+    return ret
   end
 
   def attend!(event)
