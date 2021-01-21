@@ -12,8 +12,9 @@ class User < ApplicationRecord
 
   def username
     n = 0
+    at = '@'
     m = self
-    return m.email.split('@')[n]
+    return m.email.split(at)[n]
   end
 
   def attend!(event)
