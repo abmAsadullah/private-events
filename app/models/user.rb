@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :event_attendees, foreign_key: :attendee_id
   has_many :attended_events, through: :event_attendees
 
-
   scope :upcoming, -> { where('date >= ?', DateTime.now) }
   scope :past, -> { where('date < ? ', DateTime.now) }
   # def upcoming_events
