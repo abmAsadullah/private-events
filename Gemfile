@@ -43,6 +43,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
+# rubocop:disable all
 group :test do
   gem 'rails-controller-testing'
   # Adds support for Capybara system testing and selenium driver
@@ -52,6 +53,7 @@ group :test do
   gem 'webdrivers'
   gem 'shoulda-matchers'
 end
+# rubocop:enable all
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
