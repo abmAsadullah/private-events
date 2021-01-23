@@ -1,4 +1,5 @@
 # rubocop:disable Layout/LineLength
+# rubocop:disable Lint/DuplicateHashKey
 
 require 'rails_helper'
 
@@ -72,3 +73,4 @@ RSpec.describe Event, type: :model do
 end
 
 # rubocop:enable Layout/LineLength
+# rubocop:disable Lint/DuplicateHashKey
