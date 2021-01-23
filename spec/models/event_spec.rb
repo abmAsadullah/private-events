@@ -73,4 +73,4 @@ RSpec.describe Event, type: :model do
 end
 
 # rubocop:enable Layout/LineLength
-# rubocop:disable Lint/DuplicateHashKey
+# rubocop:enable Lint/DuplicateHashKey
