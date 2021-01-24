@@ -1,0 +1,32 @@
+<h1>Title: <%= @event.title %></h1>
+
+<p>Description: <%= @event.description %></p>
+<p><small>Time: </small><%= @event.date %></p>
+<p><small>Arranged by: </small><%= @event.creator.username %></p>
+
+<br><br>
+<% if current_user && current_user != @event.creator && !current_user.attended_events.where(id: @event.id).any? %>
+	<%= form_for(current_user.event_attendees.build(attended_event_id: @event.id)) do |f| %>
+	<%= f.hidden_field :attended_event_id %>
+    <p>Lets join this event</p>
+		<%= f.submit "Attend" %>
+	<% end %>
+<% else %>
+    <p>You are attendee of this event or you created this event or currently loged out!</p>
+<% end %>
+
+  <br><br>
+
+<% if @event.attendees.any? %>
+    <h3>Attendees list:</h3>
+    <% @event.attendees.each do |attendee| %>
+        <span>
+            <%= attendee.email %>
+        </span> <br/>
+    <% end %>
+<% else %>
+    <h3>No attendees</h3>
+<% end %><br/>
+
+
+<%= link_to "See all events", events_path %>

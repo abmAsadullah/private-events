@@ -1,0 +1,38 @@
+<h1>Events page</h1>
+
+<ul>
+  <% @events.each do |event| %>
+    <li>
+      <%= link_to event.title, event %> <small>Time: </small>
+      <%= event.date%>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Upcoming Events</h2>
+<% if @events.upcoming.any? %>
+	<ul>
+  <% @events.upcoming.each do |event| %>
+    <li>
+      <%= link_to event.title, event %> <small>Time: </small>
+      <%= event.date%>
+    </li>
+  <% end %>
+</ul>
+<% else %>
+	<h3>No upcoming event!</h3>
+<% end %>
+
+<h2>Past Events</h2>
+<% if @events.past.any? %>
+	<ul>
+  <% @events.past.each do |event| %>
+    <li>
+      <%= link_to event.title, event %> <small>Time: </small>
+      <%= event.date%>
+    </li>
+  <% end %>
+</ul>
+<% else %>
+	<h3>No past event!</h3>
+<% end %>

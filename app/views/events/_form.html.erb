@@ -1,0 +1,30 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div>
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+<div>
+  <%= form.label :time %>
+  <%= form.datetime_select :date, ampm: true, order: %i[day month year], default: 0.days.from_now.localtime %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
