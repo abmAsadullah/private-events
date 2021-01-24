@@ -2,13 +2,13 @@
 
 In this project, we created an event site using Rails Associations. Users can create events and attend events.<br>
 
+![screenshot](./image/sample.JPG/)
 
 ## 🔧 Built With
 
 - Ruby (language)
 - Rails (framework)
 - Devise (gem)
-
 
 ## 🤖 Getting started
 
@@ -26,9 +26,6 @@ You'll need to have both Ruby and Rails installed on your computer.
 
 - Create an account and create event.
 
-
-
-
 ## Author
 
 👤 **A B M Asadullah**
@@ -37,18 +34,13 @@ You'll need to have both Ruby and Rails installed on your computer.
 - Twitter: [@abmAsadullah](https://twitter.com/abmAsadullah)
 - LinkedIn: [abmAsadullah](https://www.linkedin.com/in/abmAsadullah)
 
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-
-
 ## ⭐ Show your support
 
 Give a ⭐️ if you like this project!
-
-
 
 ## 📝 License
 
