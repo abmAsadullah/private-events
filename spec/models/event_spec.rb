@@ -59,12 +59,16 @@ RSpec.describe Event, type: :model do
 
   describe 'all presence' do
     it 'if creator_id not present' do
-      expect { Event.create!(title: 'title', description: 'description', date: '2020-11-22 18:42:00') }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Creator must exist')
+      expect { Event.create!(title: 'title', description: 'description', 
+        date: '2020-11-22 18:42:00') }.to raise_error(ActiveRecord::RecordInvalid, 
+          'Validation failed: Creator must exist')
     end
 
     it 'if all present' do
       User.create!(email: 'test@gmail.com', password: 'passwordtest', password_confirmation: 'passwordtest')
-      expect(Event.create!(title: 'title', description: 'description', date: '2020-11-22 18:42:00', creator_id: User.find(1).id).valid?).to be true
+      expect(Event.create!(title: 'title', description: 'description', 
+        date: '2020-11-22 18:42:00', 
+        creator_id: User.find(1).id).valid?).to be true
     end
   end
 end
