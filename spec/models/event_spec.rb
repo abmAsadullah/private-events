@@ -63,7 +63,7 @@ RSpec.describe Event, type: :model do
     end
 
     it 'if all present' do
-      User.create!(email: 'test@gmail.com', password: 'passwordtest', password: 'passwordtest')
+      User.create!(email: 'test@gmail.com', password: 'passwordtest', password_confirmation: 'passwordtest')
       expect(Event.create!(title: 'title', description: 'description', date: '2020-11-22 18:42:00', creator_id: User.find(1).id).valid?).to be true
     end
   end
